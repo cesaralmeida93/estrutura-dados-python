@@ -2,15 +2,19 @@ class Stack: #pilha
     
     def __init__(self):
         self.stack = []
+        self.len_stack = 0
 
     # inserção(ao final)
     def push(self, e):
         self.stack.append(e)
+        self.len_stack += 1
+
 
     # remoção(sempre o último)
     def pop(self):
         if not self.empty():
-            self.stack.pop(len(self.stack) - 1)
+            self.stack.pop(self.len_stack - 1)
+            self.len_stack -= 1
 
     # retorna o elemento do topo
     def top(self):
@@ -19,27 +23,29 @@ class Stack: #pilha
 
     # verificar se a pilha está vazia
     def empty(self):
-        if len(self.stack) == 0:
+        if self.len_stack == 0:
             return True
         return False
 
     # verificar o tamanho da pilha
     def stack_length(self):
-        return len(self.stack)
+        return self.len_stack
 
 s = Stack()
+print(s.empty())
 s.push(1)
 s.push(2)
 s.push(3)
-print(s.stack)
-print(s.top())
 s.pop()
-print(s.stack)
 print(s.top())
-s.pop()
-print(s.stack_length())
 print(s.stack)
-print(s.top())
-s.pop()
-print(s.stack)
-print(s.top())
+# s.pop()
+# print(s.stack)
+# print(s.top())
+# s.pop()
+# print(s.stack_length())
+# print(s.stack)
+# print(s.top())
+# s.pop()
+# print(s.stack)
+# print(s.top())
